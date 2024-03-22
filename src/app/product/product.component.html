@@ -27,11 +27,21 @@
     <div class="row mb-3">
       <div class="col">
         <label for="Price" class="form-label">Price:</label>
-        <input type="text" class="form-control" id="Price" />
+        <input
+          type="text"
+          formControlName="price"
+          class="form-control"
+          id="price"
+        />
       </div>
       <div class="col">
         <label for="Quantity" class="form-label">Quantity:</label>
-        <input type="text" class="form-control" id="Quantity" />
+        <input
+          type="text"
+          formControlName="quantity"
+          class="form-control"
+          id="quantity"
+        />
       </div>
     </div>
     <div class="row">
@@ -51,13 +61,17 @@
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let catch of product">
-            <th scope="row">{{ catch.id }}</th>
+            <th scope="row">#{{ catch.id }}</th>
             <td>{{ catch.name }}</td>
             <td>{{ catch.description }}</td>
+            <td>R$ {{ catch.price }}</td>
+            <td>{{ catch.quantity }}</td>
           </tr>
         </tbody>
       </table>
