@@ -1,19 +1,28 @@
-<main class="container vh-100 bg-light p-5">
-  <form class="col-6 mx-auto">
+<main class="container bg-light p-5">
+  <form [formGroup]="catchFormGroup" class="col-6 mx-auto">
     <h1 class="mb-4">Product Registration</h1>
     <div class="row mb-3">
       <div class="col">
         <label for="id" class="form-label">ID:</label>
-        <input type="text" class="form-control" id="id" />
+        <input type="text" formControlName="id" class="form-control" id="id" />
       </div>
       <div class="col">
         <label for="Name" class="form-label">Name:</label>
-        <input type="text" class="form-control" id="Name" />
+        <input
+          type="text"
+          formControlName="name"
+          class="form-control"
+          id="Name"
+        />
       </div>
     </div>
     <div class="mb-3">
       <label for="Description" class="form-label">Description:</label>
-      <textarea class="form-control" id="Description"></textarea>
+      <textarea
+        class="form-control"
+        formControlName="description"
+        id="Description"
+      ></textarea>
     </div>
     <div class="row mb-3">
       <div class="col">
@@ -26,9 +35,32 @@
       </div>
     </div>
     <div class="row">
-      <button type="submit" class="btn btn-dark btn-lg btn-block">
+      <button
+        type="submit"
+        (click)="submit()"
+        class="btn btn-dark btn-lg btn-block"
+      >
         Submit
       </button>
+    </div>
+    <div class="p-5">
+      <h3 class="mb-4 text-center">Products</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let catch of product">
+            <th scope="row">{{ catch.id }}</th>
+            <td>{{ catch.name }}</td>
+            <td>{{ catch.description }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </form>
 </main>
