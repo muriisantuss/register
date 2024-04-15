@@ -3,10 +3,6 @@
     <h1 class="mb-4">Product Registration</h1>
     <div class="row mb-3">
       <div class="col">
-        <label for="id" class="form-label">ID:</label>
-        <input type="text" formControlName="id" class="form-control" id="id" />
-      </div>
-      <div class="col">
         <label for="Name" class="form-label">Name:</label>
         <input
           type="text"
@@ -53,28 +49,37 @@
         Submit
       </button>
     </div>
-    <div class="p-5">
-      <h3 class="mb-4 text-center">Products</h3>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let catch of product">
-            <th scope="row">#{{ catch.id }}</th>
-            <td>{{ catch.name }}</td>
-            <td>{{ catch.description }}</td>
-            <td>R$ {{ catch.price }}</td>
-            <td>{{ catch.quantity }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </form>
+  <div class="p-5">
+    <h3 class="mb-4 text-center">Products</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let catch of product">
+          <th scope="row">#{{ catch.id }}</th>
+          <td>{{ catch.name }}</td>
+          <td>{{ catch.description }}</td>
+          <td>R$ {{ catch.price }}</td>
+          <td>{{ catch.quantity }}</td>
+          <td class="d-flex gap-1">
+            <button class="btn btn-success btn-sm" (click)="update(catch)">
+              Edit
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="delete(catch)">
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </main>

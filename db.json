@@ -2,24 +2,24 @@
   "product": [
     {
       "id": 1,
-      "name": "Produto A",
-      "description": "Este é o produto A, uma descrição detalhada pode ser colocada aqui.",
-      "price": 19.99,
-      "quantity": 100
+      "name": "Camiseta",
+      "description": "Camiseta de algodão",
+      "price": "29.99",
+      "quantity": "50"
     },
     {
       "id": 2,
-      "name": "Produto B",
-      "description": "Este é o produto B, uma descrição detalhada pode ser colocada aqui.",
-      "price": 29.99,
-      "quantity": 50
+      "name": "Calça Jeans",
+      "description": "Calça jeans slim fit",
+      "price": "59.99",
+      "quantity": "30"
     },
     {
       "id": 3,
-      "name": "Produto C",
-      "description": "Este é o produto C, uma descrição detalhada pode ser colocada aqui.",
-      "price": 39.99,
-      "quantity": 200
+      "name": "Tênis",
+      "description": "Tênis esportivo",
+      "price": "79.99",
+      "quantity": "20"
     }
   ]
 }
