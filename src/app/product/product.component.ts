@@ -1,6 +1,8 @@
+import { Category } from './../category';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 
+import { CategoryService } from '../service/category.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../service/product.service';
 
@@ -11,16 +13,20 @@ import { ProductService } from '../service/product.service';
 })
 export class ProductComponent implements OnInit {
   product: Product[] = [];
+  category: Category[] = [];
+
   catchFormGroup: FormGroup;
   isEditing: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private productService: ProductService
+    private productService: ProductService,
+    private categoryService: CategoryService
   ) {
     this.catchFormGroup = formBuilder.group({
       id: [''],
       name: [''],
+      category: [''],
       description: [''],
       price: [''],
       quantity: [''],
@@ -29,6 +35,14 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProduct();
+    this.loadCategory();
+
+  }
+
+  loadCategory() {
+    this.categoryService.getCategory().subscribe({
+      next: data => this.category = data,
+    });
   }
 
   loadProduct() {
@@ -36,6 +50,10 @@ export class ProductComponent implements OnInit {
       next: data => this.product = data,
     });
   }
+
+  compareCategory(category1: Category, category2: Category): boolean {
+    return category1 && category2 ? category1.id === category2.id : category1 === category2
+ }
 
   submit() {
     if (this.isEditing) {

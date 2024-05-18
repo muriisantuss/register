@@ -11,6 +11,18 @@
           id="Name"
         />
       </div>
+      <div class="col">
+        <label for="Category" class="form-label">Category:</label>
+        <select
+          class="form-select"
+          formControlName="category"
+          [compareWith]="compareCategory"
+        >
+          <option *ngFor="let catch of category" [ngValue]="category">
+            {{ catch.category }}
+          </option>
+        </select>
+      </div>
     </div>
     <div class="mb-3">
       <label for="Description" class="form-label">Description:</label>
@@ -57,6 +69,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
+          <th scope="col">Category</th>
           <th scope="col">Description</th>
           <th scope="col">Price</th>
           <th scope="col">Quantity</th>
@@ -67,6 +80,7 @@
         <tr *ngFor="let catch of product">
           <th scope="row">#{{ catch.id }}</th>
           <td>{{ catch.name }}</td>
+          <td>{{ catch.category.category }}</td>
           <td>{{ catch.description }}</td>
           <td>R$ {{ catch.price }}</td>
           <td>{{ catch.quantity }}</td>

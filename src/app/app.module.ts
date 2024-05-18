@@ -7,11 +7,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent
+    ProductComponent,
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent,
+    CategoryComponent
   ],
   imports: [
     HttpClientModule,

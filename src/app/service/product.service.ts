@@ -20,7 +20,6 @@ export class ProductService {
   modify(product: Product): Observable<Product>{
     return this.httpClient.put<Product>(`${this.apiUrl}/${product.id}`, product)
   }
-
   delete(product: Product): Observable<void>{
     return this.httpClient.delete<void>(`${this.apiUrl}/${product.id}`)
   }

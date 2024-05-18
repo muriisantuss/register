@@ -2,24 +2,46 @@
   "product": [
     {
       "id": 1,
-      "name": "Camiseta",
-      "description": "Camiseta de algodão",
-      "price": "29.99",
-      "quantity": "50"
+      "name": "Telefone",
+      "category": "Eletrônico",
+      "description": "Eletronico",
+      "price": "10000",
+      "quantity": "10"
     },
     {
       "id": 2,
-      "name": "Calça Jeans",
-      "description": "Calça jeans slim fit",
-      "price": "59.99",
-      "quantity": "30"
+      "name": "Computador",
+      "category": "Eletrônico",
+      "description": "Computador foi feito para ser servo dos humanos.",
+      "price": "2500",
+      "quantity": "10"
     },
     {
       "id": 3,
-      "name": "Tênis",
-      "description": "Tênis esportivo",
-      "price": "79.99",
-      "quantity": "20"
+      "name": "Amor da minha vida",
+      "category": [
+        {
+          "id": 1,
+          "category": "Comida"
+        },
+        {
+          "id": 3,
+          "category": "Yara Barreto - MyLove"
+        }
+      ],
+      "description": "Ela está com vc em todos os momentos, gosta de justin b. jr e queremos ser feliz juntos.",
+      "price": "10000000000000000000000000000000000000000000000000000000000000...",
+      "quantity": "1"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "category": "Comida"
+    },
+    {
+      "id": 3,
+      "category": "Yara Barreto - MyLove"
     }
   ]
 }
