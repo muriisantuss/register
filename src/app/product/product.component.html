@@ -15,11 +15,11 @@
         <label for="Category" class="form-label">Category:</label>
         <select
           class="form-select"
-          formControlName="category"
+          formControlName="categoryId"
           [compareWith]="compareCategory"
         >
-          <option *ngFor="let catch of category" [ngValue]="category">
-            {{ catch.category }}
+          <option *ngFor="let catch of category" [ngValue]="catch.id">
+            {{ catch.name }}
           </option>
         </select>
       </div>
@@ -32,6 +32,7 @@
         id="Description"
       ></textarea>
     </div>
+
     <div class="row mb-3">
       <div class="col">
         <label for="Price" class="form-label">Price:</label>
@@ -49,6 +50,33 @@
           formControlName="quantity"
           class="form-control"
           id="quantity"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-10">
+        <div>
+          <label class="form-check-label" for="active"> Periods:</label>
+          <span *ngFor="let period of period">
+            <input
+              type="radio"
+              formControlName="period"
+              [value]="period"
+              class="ms-3 me-1"
+            />
+            <label>{{ period }}</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-2">
+        <label class="form-check-label" for="active"> Check:</label>
+        <input
+          class="form-check-input ms-2"
+          type="checkbox"
+          value=""
+          id="active"
+          formControlName="active"
         />
       </div>
     </div>
@@ -73,6 +101,8 @@
           <th scope="col">Description</th>
           <th scope="col">Price</th>
           <th scope="col">Quantity</th>
+          <th scope="col">Status</th>
+          <th scope="col">Periods</th>
           <th scope="col">Options</th>
         </tr>
       </thead>
@@ -80,10 +110,20 @@
         <tr *ngFor="let catch of product">
           <th scope="row">#{{ catch.id }}</th>
           <td>{{ catch.name }}</td>
-          <td>{{ catch.category.category }}</td>
+          <td>{{ getCategoryName(catch.categoryId)?.name }}</td>
           <td>{{ catch.description }}</td>
           <td>R$ {{ catch.price }}</td>
           <td>{{ catch.quantity }}</td>
+          <td>
+            <span *ngIf="catch.active" class="badge text-bg-primary"
+              >Check</span
+            >
+            <span *ngIf="!catch.active" class="badge text-bg-secondary"
+              >NoCheck</span
+            >
+          </td>
+
+          <td>{{ catch.period }}</td>
           <td class="d-flex gap-1">
             <button class="btn btn-success btn-sm" (click)="update(catch)">
               Edit

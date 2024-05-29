@@ -1,10 +1,14 @@
 import { Category } from './../category';
-import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 
-import { CategoryService } from '../service/category.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../service/product.service';
+import { CategoryService } from '../service/category.service';
+
+import { Component, OnInit } from '@angular/core';
+
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Period } from '../period';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -14,6 +18,7 @@ import { ProductService } from '../service/product.service';
 export class ProductComponent implements OnInit {
   product: Product[] = [];
   category: Category[] = [];
+  period = Object.values(Period);
 
   catchFormGroup: FormGroup;
   isEditing: boolean = false;
@@ -26,10 +31,12 @@ export class ProductComponent implements OnInit {
     this.catchFormGroup = formBuilder.group({
       id: [''],
       name: [''],
-      category: [''],
+      categoryId: [''],
       description: [''],
       price: [''],
       quantity: [''],
+      active: [false],
+      period: ['']
     });
   }
 
@@ -83,5 +90,20 @@ export class ProductComponent implements OnInit {
   update(variable: Product) {
     this.isEditing = true;
     this.catchFormGroup.setValue(variable);
+  }
+
+  getCategoryName(categoryId: number) : Category | undefined{
+    return this.category.find( c => c.id === categoryId)
+  }
+  get name(): any {
+    return this.catchFormGroup.get('name');
+  }
+
+  get categorys(): any {
+    return this.catchFormGroup.get('categoryId');
+  }
+
+  get periods(): any {
+    return this.catchFormGroup.get('period');
   }
 }

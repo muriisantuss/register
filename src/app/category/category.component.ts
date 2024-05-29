@@ -1,5 +1,9 @@
-import { CategoryService } from '../service/category.service';
+import { Period } from './../period';
 import { Category } from './../category';
+import { Product } from '../product';
+
+import { ProductService } from '../service/product.service';
+import { CategoryService } from '../service/category.service';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -11,17 +15,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
   category: Category[] = []
+  product: Product[] = []
+  period = Object.values(Period)
+
   catchCategoryFormGroup: FormGroup;
   isEditing: boolean = false;
 
 
   constructor(
     private formBuilder: FormBuilder,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private productService: ProductService
+
   ) {
     this.catchCategoryFormGroup = formBuilder.group({
       id: [''],
-      category: [''],
+      name: [''],
     });
   }
 
@@ -32,6 +41,12 @@ export class CategoryComponent implements OnInit {
   loadCategory() {
     this.categoryService.getCategory().subscribe({
       next: data => this.category = data,
+    });
+  }
+
+  loadProduct() {
+    this.productService.getProduct().subscribe({
+      next: data => this.product = data,
     });
   }
 
@@ -62,6 +77,14 @@ export class CategoryComponent implements OnInit {
   update(variable: Category) {
     this.isEditing = true;
     this.catchCategoryFormGroup.setValue(variable);
+  }
+
+  getCategoryName(categoryId: number) : Category | undefined{
+    return this.category.find( c => c.id === categoryId)
+  }
+
+  get name():any{
+    return this.catchCategoryFormGroup.get('name')
   }
 
 

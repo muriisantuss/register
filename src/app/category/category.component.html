@@ -7,9 +7,9 @@
         <label for="Category" class="form-label">Category:</label>
         <input
           type="text"
-          formControlName="category"
+          formControlName="name"
           class="form-control"
-          id="Category"
+          id="name"
         />
       </div>
     </div>
@@ -36,7 +36,7 @@
       <tbody>
         <tr *ngFor="let catch of category">
           <th scope="row">#{{ catch.id }}</th>
-          <td>{{ catch.category }}</td>
+          <td>{{ catch.name }}</td>
           <td class="d-flex gap-1">
             <button class="btn btn-success btn-sm" (click)="update(catch)">
               Edit
