@@ -1,4 +1,4 @@
-import { Category } from './../category';
+import { Category } from '../category';
 import { Product } from '../product';
 
 import { ProductService } from '../service/product.service';
@@ -36,31 +36,32 @@ export class ProductComponent implements OnInit {
       price: [''],
       quantity: [''],
       active: [false],
-      period: ['']
+      period: [''],
     });
   }
 
   ngOnInit(): void {
     this.loadProduct();
     this.loadCategory();
-
   }
 
   loadCategory() {
     this.categoryService.getCategory().subscribe({
-      next: data => this.category = data,
+      next: (data) => (this.category = data),
     });
   }
 
   loadProduct() {
     this.productService.getProduct().subscribe({
-      next: data => this.product = data,
+      next: (data) => (this.product = data),
     });
   }
 
   compareCategory(category1: Category, category2: Category): boolean {
-    return category1 && category2 ? category1.id === category2.id : category1 === category2
- }
+    return category1 && category2
+      ? category1.id === category2.id
+      : category1 === category2;
+  }
 
   submit() {
     if (this.isEditing) {
@@ -73,7 +74,7 @@ export class ProductComponent implements OnInit {
       });
     } else {
       this.productService.save(this.catchFormGroup.value).subscribe({
-        next: data => {
+        next: (data) => {
           this.product.push(data);
           this.catchFormGroup.reset();
         },
@@ -92,8 +93,8 @@ export class ProductComponent implements OnInit {
     this.catchFormGroup.setValue(variable);
   }
 
-  getCategoryName(categoryId: number) : Category | undefined{
-    return this.category.find( c => c.id === categoryId)
+  getCategoryName(categoryId: number): Category | undefined {
+    return this.category.find((c) => c.id === categoryId);
   }
   get name(): any {
     return this.catchFormGroup.get('name');

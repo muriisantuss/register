@@ -4,12 +4,21 @@
     <h1 class="mb-4">Category Registration</h1>
     <div class="row mb-3">
       <div class="col">
-        <label for="Category" class="form-label">Category:</label>
+        <label for="Category" class="form-label">Name:</label>
         <input
           type="text"
           formControlName="name"
           class="form-control"
           id="name"
+        />
+      </div>
+      <div class="col">
+        <label for="Image" class="form-label">Image:</label>
+        <input
+          type="text"
+          formControlName="image"
+          class="form-control"
+          id="image"
         />
       </div>
     </div>
@@ -29,7 +38,8 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Category</th>
+          <th scope="col">Name</th>
+          <th scope="col">Image</th>
           <th scope="col">Options</th>
         </tr>
       </thead>
@@ -37,6 +47,7 @@
         <tr *ngFor="let catch of category">
           <th scope="row">#{{ catch.id }}</th>
           <td>{{ catch.name }}</td>
+          <td>{{ catch.image }}</td>
           <td class="d-flex gap-1">
             <button class="btn btn-success btn-sm" (click)="update(catch)">
               Edit

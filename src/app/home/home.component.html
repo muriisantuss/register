@@ -1,1 +1,20 @@
-<main class="container bg-light px-5"><p>home works!</p></main>
+<main class="container bg-light px-5">
+  <h1 class="text-center mb-4">Products - Category</h1>
+  <form [formGroup]="catchCategoryFormGroup" class="row mx-auto">
+      <div *ngFor="let catch of category" class="col-4 d-flex mb-4">
+        <div class="card" style="width: 80%;  margin: 0 auto ">
+          <img
+            style="height: 10rem"
+            class="card-img-top"
+            src="{{ catch.image }}"
+            alt="Card image cap"
+          />
+          <div class="card-body" >
+            <h5 class="card-title">{{ catch.name }}</h5>
+              <p class="card-text">Total product: in development...🚧</p>
+            <a routerLink="product/" class="btn btn-primary">Acessar</a>
+          </div>
+        </div>
+      </div>
+  </form>
+</main>

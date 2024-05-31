@@ -1,5 +1,6 @@
+import { ProductComponent } from './../product/product.component';
 import { Period } from './../period';
-import { Category } from './../category';
+import { Category } from '../category';
 import { Product } from '../product';
 
 import { ProductService } from '../service/product.service';
@@ -11,27 +12,28 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrl: './category.component.css'
+  styleUrl: './category.component.css',
 })
 export class CategoryComponent implements OnInit {
-  category: Category[] = []
-  product: Product[] = []
-  period = Object.values(Period)
+  category: Category[] = [];
+  product: Product[] = [];
+  period = Object.values(Period);
 
   catchCategoryFormGroup: FormGroup;
   isEditing: boolean = false;
 
-
   constructor(
-    private formBuilder: FormBuilder,
-    private categoryService: CategoryService,
-    private productService: ProductService
-
+    public formBuilder: FormBuilder,
+    public categoryService: CategoryService,
+    private productService: ProductService,
   ) {
     this.catchCategoryFormGroup = formBuilder.group({
       id: [''],
+      categoryId: [''],
       name: [''],
+      image: [''],
     });
+
   }
 
   ngOnInit(): void {
@@ -40,13 +42,13 @@ export class CategoryComponent implements OnInit {
 
   loadCategory() {
     this.categoryService.getCategory().subscribe({
-      next: data => this.category = data,
+      next: (data) => (this.category = data),
     });
   }
 
   loadProduct() {
     this.productService.getProduct().subscribe({
-      next: data => this.product = data,
+      next: (data) => (this.product = data),
     });
   }
 
@@ -61,7 +63,7 @@ export class CategoryComponent implements OnInit {
       });
     } else {
       this.categoryService.save(this.catchCategoryFormGroup.value).subscribe({
-        next: data => {
+        next: (data) => {
           this.category.push(data);
           this.catchCategoryFormGroup.reset();
         },
@@ -79,13 +81,11 @@ export class CategoryComponent implements OnInit {
     this.catchCategoryFormGroup.setValue(variable);
   }
 
-  getCategoryName(categoryId: number) : Category | undefined{
-    return this.category.find( c => c.id === categoryId)
+  getCategoryName(categoryId: number): Category | undefined {
+    return this.category.find((c) => c.id === categoryId);
   }
 
-  get name():any{
-    return this.catchCategoryFormGroup.get('name')
+  get name(): any {
+    return this.catchCategoryFormGroup.get('name');
   }
-
-
 }

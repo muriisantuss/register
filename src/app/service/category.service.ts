@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Category } from './../category';
+import { Category } from '../category';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 import { Observable } from 'rxjs';
+import { Product } from '../product';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +14,7 @@ export class CategoryService {
   constructor(private httpClient: HttpClient) {}
 
   getCategory(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(this.apiUrl);
+    return this.httpClient.get<Category[]>(`${this.apiUrl}`);
   }
 
   getCategoryOne(id: number): Observable<Category> {

@@ -1,5 +1,5 @@
-import { Category } from "./category";
-import { Period } from "./period";
+import { Period } from './period';
+import { Category } from './category';
 
 export interface Product {
   id: number;

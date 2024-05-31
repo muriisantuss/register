@@ -1,25 +1,87 @@
 {
   "product": [
     {
-      "id": 2,
-      "name": "Computador",
+      "id": 1,
+      "name": " Smartphone Galaxy S21",
       "categoryId": 1,
-      "description": "Computador foi feito para você aprender cada vez mais com ele ",
-      "price": "10000",
-      "quantity": "10",
-      "active": false,
+      "description": "Smartphone com tela de 6.2 polegadas, 128GB de armazenamento, câmera traseira tripla de 64MP, e bateria de 4000mAh.",
+      "price": "3.500,00",
+      "quantity": "25",
+      "active": true,
       "period": "Available"
     },
     {
-      "id": 3,
-      "name": "Musica ",
+      "id": 2,
+      "name": "Tênis Adidas Ultraboost",
       "categoryId": 2,
-      "description": "ruim",
-      "price": "1",
-      "quantity": "1",
-      "active": false,
+      "description": "Tênis esportivo unissex com tecnologia Boost, ideal para corridas e atividades físicas.",
+      "price": "650,00",
+      "quantity": "30",
+      "active": true,
+      "period": "Out of Stock"
+    },
+    {
+      "id": 3,
+      "name": " Bicicleta Mountain Bike Caloi",
+      "categoryId": 5,
+      "description": "Bicicleta de montanha com quadro de alumínio, 21 marchas, e suspensão dianteira.",
+      "price": "2.300,00",
+      "quantity": "12",
+      "active": true,
+      "period": "Available"
+    },
+    {
+      "id": 4,
+      "name": "Laptop Dell Inspiron 15",
+      "categoryId": 1,
+      "description": "Laptop com tela de 15.6 polegadas, processador Intel Core i7, 16GB de RAM, 512GB SSD, e Windows 10.",
+      "price": "6.200,00",
+      "quantity": "10",
+      "active": true,
+      "period": ""
+    },
+    {
+      "id": 5,
+      "name": " Conjunto de Sofás de Jardim",
+      "categoryId": 3,
+      "description": "Conjunto de sofás para jardim em rattan sintético, inclui mesa de centro e almofadas impermeáveis.",
+      "price": "4.200,00",
+      "quantity": "5",
+      "active": true,
       "period": "Available"
     }
   ],
-  "category": []
+  "category": [
+    {
+      "id": 1,
+      "name": "Eletrônicos",
+      "image": "https://fdr.com.br/wp-content/uploads/2021/03/eletronicos.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Moda e Acessórios",
+      "image": "https://th.bing.com/th/id/R.18c58e8af48d564229c49e08c18e59be?rik=7I3JRunAo47TYw&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 3,
+      "name": "Casa e Jardim",
+      "image": "https://th.bing.com/th/id/OIP._u-cbxdUKu92v7voy40KwgHaEK?rs=1&pid=ImgDetMain"
+    },
+    {
+      "id": 4,
+      "name": "Saúde e Beleza",
+      "image": "https://th.bing.com/th/id/R.c8e5206ad402d019ac974774a6e8b060?rik=L1jQR5d7J2J2nw&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 5,
+      "name": "Esporte e Lazer",
+      "image": "https://blog.daazcavernas.com/content/images/2020/07/esporte-e-lazer.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Alimentos e Bebidas",
+      "image": "https://th.bing.com/th/id/R.91997dc7a9b2ac59b71573f703ae1891?rik=lAY4vJ%2bWrO1f7A&pid=ImgRaw&r=0",
+      "count": "10"
+    }
+  ]
 }
